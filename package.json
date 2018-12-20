@@ -14,12 +14,27 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.8",
+    "@fortawesome/free-solid-svg-icons": "^5.5.0",
+    "@fortawesome/vue-fontawesome": "^0.1.2",
+    "@types/node": "^10.12.12",
+    "@vechain/connex": "^0.2.0",
     "@vue/cli-plugin-babel": "^3.2.0",
     "@vue/cli-plugin-typescript": "^3.2.0",
     "@vue/cli-service": "^3.2.0",
+    "bignumber.js": "^8.0.1",
+    "bootstrap-vue": "^2.0.0-rc.11",
+    "delay": "^4.1.0",
+    "keccak": "^1.4.0",
     "node-sass": "^4.9.0",
+    "request": "^2.88.0",
     "sass-loader": "^7.0.1",
+    "solc": "^0.5.1",
+    "thor-devkit": "^0.3.0",
+    "ts-node": "^7.0.1",
     "typescript": "^3.0.0",
-    "vue-template-compiler": "^2.5.17"
+    "vechain": "0.0.0",
+    "vue-template-compiler": "^2.5.17",
+    "web3": "^1.0.0-beta.37"
   }
 }
