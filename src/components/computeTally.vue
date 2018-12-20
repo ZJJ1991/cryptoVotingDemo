@@ -1,5 +1,5 @@
 <template>
-    <b-card title="Compute Total Positive Votes">
+    <b-card bg-variant="light" class="w-75 mx-auto mb-5" title="Compute Total Positive Votes">
         <b-row class="justify-content-md-center">
             <b-col>
                 <b-button @click="computeTally">Compute Tally</b-button>
@@ -7,12 +7,15 @@
             <b-col>
                 <b-button @click="getFinalTally">getFinalTally</b-button>
             </b-col>
+            <b-col>
+                <b-button @click="getFinalTally">Clear</b-button>
+            </b-col>
         </b-row>
     </b-card>
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { methodOfAnonymousVoting } from "@/contracts/utils";
+import { methodOfAnonymousVoting, extractValueFromDecoded } from "@/contracts/utils";
 let connex = window.connex;
 const delay = require("delay");
 export default Vue.extend({
@@ -38,6 +41,7 @@ export default Vue.extend({
         let txReverted = receipt.reverted;
         if (!txReverted) {
           console.log("receipt: ", receipt);
+          alert("finish computing the Tally")
         } else {
           alert("fail to compute total");
         }
@@ -47,6 +51,8 @@ export default Vue.extend({
         let VMOutput = await  methodOfAnonymousVoting("getFinalTally")!.call()
         let message = [];
         console.log("VM Output: ", VMOutput)
+        let affirmativeVote = extractValueFromDecoded(VMOutput, "0")
+        alert("The Number of Affirmative Votes is: "+affirmativeVote)
     }
   }
 });

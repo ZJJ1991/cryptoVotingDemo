@@ -1,5 +1,8 @@
 <template>
     <b-card bg-variant="light" class="w-75 mx-auto" title="Set Eligible Voting Addresses">
+      <b-row>
+        0x7797728c180152c98787351a531526a508fe814c, 0x7567d83b7b8d80addcb281a71d54fc7b3364ffed, 0xd3ae78222beadb038203be21ed5ce7c9b1bff602
+      </b-row>
         <b-row class="mb-3">
             <b-col class="mb-3">
             <b-form-input v-model="eligibleAddress"

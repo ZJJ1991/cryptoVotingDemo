@@ -1,5 +1,5 @@
 <template>
-    <b-card bg-variant="light" class="w-75 mx-auto" title="Begin Sign Up">
+    <b-card bg-variant="light" class="w-75 mx-auto" title="Begin Sign Up (Initiate a Vote)">
     <b-row class="mb-3">
         <b-col class = "mb-3">
         <b-form-input v-model="question"
