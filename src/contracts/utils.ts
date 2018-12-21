@@ -27,7 +27,8 @@ export const methodOfHelloWorld = function (name: string): Connex.Thor.Method | 
 
 export const methodOfAnonymousVoting = function (name: string): Connex.Thor.Method | null {
     if (window.connex) {
-        let contract = window.connex.thor.account("0x689ecc493b6fe79b0e0f900481fca34b3c56e6ac")
+        console.log("new contract add: ", store.state.anonymousVotingAdd)
+        let contract = window.connex.thor.account(store.state.anonymousVotingAdd)
         return contract.method(findInABI(name, anonymousVotingABI))
     }
     return null

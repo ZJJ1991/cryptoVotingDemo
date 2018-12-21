@@ -1,6 +1,6 @@
 <template>
     <b-card bg-variant="light" class="w-75 mx-auto" title="Initiate Voting Contract">
-        <b-row class="mb-3">
+        <!-- <b-row class="mb-3">
             <b-col class = "mb-3">
             <b-form-input v-model="gapTxt"
                 type="text"
@@ -11,7 +11,7 @@
                 type="text"
                 placeholder="Enter The Charity Address"></b-form-input>
             </b-col>
-        </b-row>
+        </b-row> -->
         <b-row class="mb-3 justify-content-md-center">
             <b-button @click="deployAnonymousVoting">Deploy</b-button>
         </b-row>
