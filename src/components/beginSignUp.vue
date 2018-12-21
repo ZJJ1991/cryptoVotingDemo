@@ -1,5 +1,5 @@
 <template>
-    <b-card bg-variant="light" class="w-75 mx-auto" title="Begin Sign Up">
+    <b-card bg-variant="light" class="w-75 mx-auto" title="Begin Sign Up (Initiate a Vote)">
     <b-row class="mb-3">
         <b-col class = "mb-3">
         <b-form-input v-model="question"
@@ -12,8 +12,8 @@
             placeholder="Enable Commitment Phase"></b-form-input>
         </b-col>
     <!-- second row -->
-    </b-row>
-        <b-row class="mb-3">
+    <!-- </b-row> -->
+    <!-- <b-row class="mb-3">
         <b-col class = "mb-3">
         <b-form-input v-model="finishSUP"
             type="text"
@@ -29,10 +29,10 @@
             type="text"
             placeholder="End Commitment Phase"></b-form-input>
         </b-col>
-    </b-row>
+    </b-row> -->
     <!-- third row -->
-        <b-row class="mb-3">
-        <b-col class = "mb-3">
+        <!-- <b-row class="mb-3"> -->
+        <!-- <b-col class = "mb-3">
         <b-form-input v-model="endVP"
             type="text"
             placeholder="End Voting Phase"></b-form-input>
@@ -41,7 +41,7 @@
         <b-form-input v-model="endRP"
             type="text"
             placeholder="End Refund Phase"></b-form-input>
-        </b-col>
+        </b-col> -->
         <b-col class = "mb-3">
         <b-form-input v-model="deposit"
             type="text"
@@ -96,7 +96,12 @@ export default class beginSignUp extends Vue {
              return false
         }
     }
-    async beginSignUp(){
+    async beginSignUp(){    
+    this.finishSUP = "20000";
+    this.endSUP = "30000";
+    this.endCP = "40000";
+    this.endVP = "50000"
+    this.endRP = "60000"
     let clause = await methodOfAnonymousVoting("beginSignUp")!.asClause(
         this.question, this.enableCP, this.finishSUP, this.endSUP, this.endCP, this.endVP, this.endRP, this.deposit
     );

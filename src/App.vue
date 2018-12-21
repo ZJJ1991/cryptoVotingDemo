@@ -2,7 +2,9 @@
 <div id="app">
     <div id="nav">
         <router-link to="/">Local Crypto</router-link> |
-        <router-link to="/voting">Anomous Voting</router-link>
+        <router-link to="/commitment">Local Crypto To Generate Commitment</router-link> |
+        <router-link to="/voter">Anonymous Voting for Voter</router-link> |
+        <router-link to="/owner">Anonymous Voting for Owner</router-link>
     </div>
     <router-view />
 </div>

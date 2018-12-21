@@ -1,5 +1,8 @@
 <template>
     <b-card bg-variant="light" class="w-75 mx-auto" title="Registration">
+      <b-row>
+        0x7797728c180152c98787351a531526a508fe814c, 0x7567d83b7b8d80addcb281a71d54fc7b3364ffed, 0xd3ae78222beadb038203be21ed5ce7c9b1bff602
+      </b-row>
     <b-row class="mb-3">
         <b-col class = "mb-3">
         <b-form-input v-model="xG1"
@@ -17,17 +20,17 @@
         <b-col class = "mb-3">
         <b-form-input v-model="vG1"
             type="text"
-            placeholder="ZKP arg 1"></b-form-input>
+            placeholder="ZKP arg 1 for voting pub key"></b-form-input>
         </b-col>
         <b-col class = "mb-3">
         <b-form-input v-model="vG2"
             type="text"
-            placeholder="ZKP arg 2"></b-form-input>
+            placeholder="voting public key ZKP arg 2"></b-form-input>
         </b-col>
         <b-col class = "mb-3">
         <b-form-input v-model="vG3"
             type="text"
-            placeholder="ZKP arg 3"></b-form-input>
+            placeholder="voting pub key ZKP arg 3"></b-form-input>
         </b-col>
     </b-row>
     <!-- third row -->
@@ -80,7 +83,6 @@ export default class register extends Vue {
     // this.getEligible()
   }
   async getVoter() {
-      console.log("get voter")
     let VMOutput = await methodOfAnonymousVoting("getVoter")!.caller(this.registrant)
       .call();
     console.log("vm output of get voter: ", VMOutput);
@@ -133,6 +135,33 @@ export default class register extends Vue {
   async register() {
     console.log('registrant: ', this.registrant)
     console.log('vG1', this.vG1)
+    if(this.registrant == "0x7797728c180152c98787351a531526a508fe814c"){
+        this.xG1 = "29590130514932554806641080735332723266829587531681790637485882445862259011986"
+        this.xG2 = "61167260634602923745186157492879458666896165688679032872243742321093151017586"
+        this.r = "99084052218692724197719510588949394446601638139001831460159220477878805639223"
+        this.vG1 = "105837836065535652128400492995648521423521406984184914675071442232634520137912"
+        this.vG2 = "3030312356737950808560910792228758720346081479382604656782692855819898362285"
+        this.vG3 = "1"
+    }
+
+    if(this.registrant == "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed"){
+        this.xG1 = "17157104938316039559881563838880895120682998433435816733280344609839998288514"
+        this.xG2 = "109891285209134945571221796685445702050711671362834643803197090073699903409756"
+        this.r = "37685733357632496339424861187648113671443335202258296039413631041392943533683"
+        this.vG1 = "2415611098568606506184716372674690170286302556206543610831669559070520425725"
+        this.vG2 = "29603408056581905571083564602849002361129376566788044988806149850642901915050"
+        this.vG3 = "1"
+    }
+
+    if(this.registrant == "0xd3ae78222beadb038203be21ed5ce7c9b1bff602"){
+        this.xG1 = "47721061848867774723144757710291789226461563624530361782882746205774254314993"
+        this.xG2 = "75909239257779274342645304713198022969065228547417309104716850297107166051860"
+        this.r = "84491243570103960721119991457534953171783795875837279005331136604590257903345"
+        this.vG1 = "85205526516045204822368525125143345446842027685443282439384429408586916436229"
+        this.vG2 = "68408538249208274184583019345856189623323450652213880163783583219855083864844"
+        this.vG3 = "1"
+    }
+
     let clause = await methodOfAnonymousVoting("register")!.asClause(
       [this.xG1, this.xG2],
       [this.vG1, this.vG2, this.vG3],
